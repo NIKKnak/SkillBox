@@ -4,10 +4,17 @@
     {
         static void Main(string[] args)
         {
-            
+            /*CheckingNumber checkingNumber = new CheckingNumber();
+            checkingNumber.Check();*/
 
-            TwentyOne twentyOne = new TwentyOne();
-            twentyOne.twentyOne();
+            /*MinVal minVal = new MinVal();
+            minVal.SearchMin();*/
+
+            GuessNumber guessNumber = new GuessNumber();
+            guessNumber.GameGuessNumber();
+
+
+
         }
     }
 }
