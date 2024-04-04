@@ -5,9 +5,11 @@
         static void Main(string[] args)
         {
             
-            RandomMatrix randomMatrix = new RandomMatrix();
-            randomMatrix.Matrix();
+            /*RandomMatrix randomMatrix = new RandomMatrix();
+            randomMatrix.Matrix();*/
 
+            SumMatrix sumMatrix = new SumMatrix();
+            sumMatrix.SumOfTwoMatrix();
 
         }
     }
