@@ -4,6 +4,12 @@
     {
         static void Main(string[] args)
         {
+            /*EvenNumber evenNumber = new EvenNumber();
+            evenNumber.EvenNum();*/
+
+            /*TwentyOne twentyOne = new TwentyOne();
+            twentyOne.twentyOne();*/
+
             /*CheckingNumber checkingNumber = new CheckingNumber();
             checkingNumber.Check();*/
 

@@ -16,19 +16,26 @@ namespace Cycles
             Random random = new Random();
             int rnd = random.Next(0,enterMaxNumber);
 
-            bool examination = true;
-
-
-
-            //Console.ReadKey(true).Key == ConsoleKey.Enter
-
-
             Console.Clear();
 
-            while (examination)
+            while (true)
             {
                 Console.WriteLine("Угадайте число");
-                int enterValue = Convert.ToInt32(Console.ReadLine());
+                string input = Console.ReadLine();
+
+                if (input == "")
+                {
+                    Console.WriteLine($"Игра закончена. Было загадано число: {rnd}");
+                    break;
+
+                }
+
+                int enterValue;
+                if (!int.TryParse(input,out enterValue))
+                {
+                    Console.WriteLine("Ошибка ввода. Dвведите целое число или нажмите Enter для выхода.");
+                    continue;
+                }
 
                 if (rnd == enterValue)
                 {
@@ -36,28 +43,19 @@ namespace Cycles
                     Console.WriteLine($"Ты угадал!!! Это число {rnd}");
                     break;
                 }
-                if (!examination)
+                
+                if (rnd > enterValue)
                 {
-                    Console.WriteLine($"Игра закончена. Было загадано число: {rnd}");
-                    examination = false;
-
+                    Console.Clear() ;
+                    Console.WriteLine($"Неверно, загаданное число больше");
                 }
-                else
+
+                if (rnd < enterValue)
                 {
                     Console.Clear();
-                    Console.WriteLine("Неверно");
+                    Console.WriteLine($"Неверно, загаданное число меньше");
                 }
-
-
-
-
-
-
             }
-
-
-
-
         }
     }
 }
