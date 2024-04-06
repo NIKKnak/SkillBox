@@ -9,20 +9,21 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-            /*Console.WriteLine($"Введите слова через пробел\n\n");
+            //DZ1
+
+            Console.WriteLine($"Введите слова через пробел\n\n");
             string inputText = Console.ReadLine();
 
             SplitText splitText = new SplitText();
             PrintConvertString printConvertString = new PrintConvertString();
 
-            printConvertString.PrintArray(splitText.SplitInputText(inputText));*/
+            printConvertString.PrintArray(splitText.SplitInputText(inputText));
 
             //-----------------------------------------------------------------------
 
-            Console.WriteLine($"Введите слова через пробел\n\n");
-            string inputText = Console.ReadLine();
-
-           ReversString reversString = new ReversString();
+            //DZ2
+            Console.WriteLine("Перевернутая строка");
+            ReversString reversString = new ReversString();
             reversString.ReversStringText(inputText);
 
 
