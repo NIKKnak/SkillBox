@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Employees
 {
@@ -16,10 +12,20 @@ namespace Employees
             using (StreamReader streamReader = new StreamReader(pathFile))
             {
                 sb.Append(streamReader.ReadToEnd());
+
+                string[] arrayValue = sb.ToString().Split('#');
+
+                foreach (var item in arrayValue)
+                {
+                    Console.Write($"{item}\t");
+                }
+
+                Console.ReadKey();
+                Console.Clear();
             }
 
 
-            Console.WriteLine(sb);
+            
 
         }
 

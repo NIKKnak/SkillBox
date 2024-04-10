@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Employees
+﻿namespace Employees
 {
     internal class AddEmploe
     {
-        public void AddEmploeInFile(string[] array)
+        public void AddEmploeInFile(object[] array)
         {
             ReadFile readFile = new ReadFile();
             string pathFile = readFile.pathFile;
@@ -21,21 +14,23 @@ namespace Employees
                     streamWriter.WriteLine("\n"); // <---добавил переход, не получилось с переходом н новую строку
                     foreach (var item in array)
                     {
-                        streamWriter.WriteAsync(item+'#'); // <--- не получилось убрать знак # в конце
+                        streamWriter.WriteAsync(Convert.ToString(item)+'#'); // <--- не получилось убрать знак # в конце
                     }                 
                 }
+                //повторение кода(нехорошо)
                 else
                 {
                     using (File.Create(pathFile))
                     {
-                        streamWriter.WriteLine("\n"); 
+                        streamWriter.WriteLine("\n"); // <---добавил переход, не получилось с переходом н новую строку
                         foreach (var item in array)
                         {
-                            streamWriter.WriteAsync(item + '#');
+                            streamWriter.WriteAsync(Convert.ToString(item) + '#'); // <--- не получилось убрать знак # в конце
                         }
                     }
                 }
             }
+            Console.Clear();
         }
     }
 }

@@ -1,17 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Employees
+﻿namespace Employees
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-
-            while (true)
+            bool runProgramm = true;
+            while (runProgramm)
             {
-                Console.WriteLine("Выберите действие:\nПрочитать файл: 1\nДобавить сотрудника: 2");
+                Console.WriteLine("Выберите действие:\nПрочитать файл: 1\nДобавить сотрудника: 2\nВыход: 3");
                 int inputValue = Convert.ToInt32(Console.ReadLine());
 
                 switch (inputValue)
@@ -23,10 +19,10 @@ namespace Employees
 
                     case 2:
                         Console.Clear();
-                        string[] newEmploye = new string[7];
+                        object[] newEmploye = new object[7];
 
                         Console.WriteLine("Введите ID пользователя:\n");
-                        string id = Console.ReadLine();
+                        int id = Convert.ToInt32(Console.ReadLine());
 
                         DateTime dateTime = DateTime.Now;
                         string dateTimeConvert = Convert.ToString(dateTime);
@@ -35,10 +31,10 @@ namespace Employees
                         string fio = Console.ReadLine();
 
                         Console.WriteLine("Введите возраст сотрудника:\n");
-                        string age = Console.ReadLine();
+                        int age = Convert.ToInt32(Console.ReadLine());
 
                         Console.WriteLine("Введите рост сотрудника:\n");
-                        string height = Console.ReadLine();
+                        int height = Convert.ToInt32(Console.ReadLine());
 
                         Console.WriteLine("Введите дату рождения сотрудника:\n");
                         DateTime dateOfBirth = Convert.ToDateTime(Console.ReadLine());
@@ -58,6 +54,10 @@ namespace Employees
                         AddEmploe addEmploe = new AddEmploe();
                         addEmploe.AddEmploeInFile(newEmploye);
 
+                        break;
+
+                    case 3:
+                        runProgramm = false;
                         break;
                 }
             }
