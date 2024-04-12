@@ -7,9 +7,6 @@
             bool runProgramm = true;
             while (runProgramm)
             {
-
-
-
                 Console.WriteLine("Выберите действие:\nПрочитать файл: 1\nДобавить сотрудника: 2\nВыход: 3");
                 int inputValue = Convert.ToInt32(Console.ReadLine());
 
@@ -59,12 +56,7 @@
                         runProgramm = false;
                         break;
                 }
-
-
-
-
             }
-
         }
     }
 }

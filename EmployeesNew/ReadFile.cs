@@ -14,15 +14,10 @@ namespace EmployeesNew
         {
             StringBuilder sb = new StringBuilder(500);
 
-
             if (File.Exists(pathFile))
             {
-
-
                 using (StreamReader streamReader = new StreamReader(pathFile))
                 {
-
-
                     sb.Append(streamReader.ReadToEnd());
                     string[] arrayValue = sb.ToString().Split('#');
 
@@ -32,7 +27,7 @@ namespace EmployeesNew
                     }
                     Console.ReadKey();
                     Console.Clear();
-                } 
+                }
             }
             else
             {
@@ -49,10 +44,6 @@ namespace EmployeesNew
                     Console.Clear();
                 }
             }
-
-
         }
-
-
     }
 }
