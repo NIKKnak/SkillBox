@@ -9,7 +9,7 @@ namespace EmployeesNew
     public struct Worker
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime AddedDateTime { get; set; }
         public string Fio { get; set; }
         public int Age { get; set; }
         public int Height { get; set; }
@@ -19,7 +19,7 @@ namespace EmployeesNew
         public Worker(int id, DateTime date, string fio, int age, int height, DateTime dateOfBirth, string placeOfBirth)
         {
             this.Id = id;
-            this.Date = date;
+            this.AddedDateTime = date;
             this.Fio = fio;
             this.Age = age;
             this.Height = height;
@@ -28,7 +28,7 @@ namespace EmployeesNew
         }
         public string ToString()
         {
-            return $"{Id}#{Date:dd.MM.yyyy HH:mm}#{Fio}#{Age}#{Height}#{DateOfBirth:dd.MM.yyyy}#{PlaceOfBirth}";
+            return $"{Id}#{AddedDateTime:dd.MM.yyyy HH:mm}#{Fio}#{Age}#{Height}#{DateOfBirth:dd.MM.yyyy}#{PlaceOfBirth}";
         }
     }
 }

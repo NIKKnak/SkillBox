@@ -7,17 +7,44 @@
             bool runProgramm = true;
             while (runProgramm)
             {
-                Console.WriteLine("Выберите действие:\nПрочитать файл: 1\nДобавить сотрудника: 2\nВыход: 3");
+                Console.WriteLine("Выберите действие:" +
+                    "\nПрочитать файл: 1" +
+                    "\nВыбрать сотрудника: 2" +
+                    "\nДобавить сотрудника: 3" +
+                    "\nУдалить сотрудника: 4" +
+                    "\nВыход: 5");
+
+
+                Repository repository = new Repository();
+                Worker[] workers = repository.GetAllWorkers();
+
                 int inputValue = Convert.ToInt32(Console.ReadLine());
 
                 switch (inputValue)
                 {
                     case 1:
-                        ReadFile readFile = new ReadFile();
-                        readFile.ReadTxtFile();
+                        repository.PrintWorkers(workers);
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case 2:
+                        Console.WriteLine($"Введите id сотрудника:");
+                        int inputIdAdd = Convert.ToInt32(Console.ReadLine());
+
+
+
+                        Worker selectedWorker = repository.GetWorkerById(inputIdAdd, workers);
+                        if (selectedWorker.Id != 0)
+                        {
+                            Console.WriteLine("Выбранный сотрудник:");
+                            repository.PrintWorker(selectedWorker);
+                        }
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case 3:
                         Console.Clear();
 
                         Worker worker = new Worker();
@@ -49,12 +76,21 @@
 
                         AddEmploye employe = new AddEmploye();
                         employe.AddEmploeInFile(newWorcer);
-
                         break;
 
-                    case 3:
+                    case 4:
+                        Console.WriteLine($"Введите id сотрудника:");
+                        int inputIdDel = Convert.ToInt32(Console.ReadLine());
+
+                        repository.DeleteWorker(inputIdDel);
+                        break;
+
+                    case 5:
+
                         runProgramm = false;
+
                         break;
+
                 }
             }
         }

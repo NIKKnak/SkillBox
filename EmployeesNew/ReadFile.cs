@@ -10,6 +10,7 @@ namespace EmployeesNew
     internal class ReadFile
     {
         public readonly string pathFile = "Employe.txt";
+
         public void ReadTxtFile()
         {
             StringBuilder sb = new StringBuilder(500);
