@@ -26,7 +26,6 @@ namespace EmployeesNew
                     $" DateOfBirth: {worker.DateOfBirth}," +
                     $" PlaceOfBirth: {worker.PlaceOfBirth}");
             }
-
         }
 
         /// <summary>
@@ -72,9 +71,6 @@ namespace EmployeesNew
                     PlaceOfBirth = data[6]
                 };
             }
-            //Console.ReadKey();
-            //Console.Clear();
-
             return workers;
         }
 
@@ -85,12 +81,10 @@ namespace EmployeesNew
         /// <returns></returns>
         public Worker GetWorkerById(int id, Worker[] workers)
         {
-            //Worker[] workers = GetAllWorkers();
             foreach (var worker in workers)
             {
                 if (worker.Id == id)
                     PrintWorker(worker);
-                //return worker;
             }
             return new Worker(); // Если не найден, возвращаем пустой объект Worker
         }

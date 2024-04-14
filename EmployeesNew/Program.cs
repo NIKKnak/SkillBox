@@ -15,10 +15,6 @@
                     "\nФильтр по датам: 5" +
                     "\nВыход: 6");
 
-
-
-
-
                 Repository repository = new Repository();
                 Worker[] workers = repository.GetAllWorkers();
 
@@ -35,8 +31,6 @@
                     case 2:
                         Console.WriteLine($"Введите id сотрудника:");
                         int inputIdAdd = Convert.ToInt32(Console.ReadLine());
-
-
 
                         Worker selectedWorker = repository.GetWorkerById(inputIdAdd, workers);
                         if (selectedWorker.Id != 0)
