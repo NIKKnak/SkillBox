@@ -9,6 +9,7 @@ namespace EmployeesNew
     internal class Repository
     {
         public readonly string filePath = "Employe.txt";
+
         /// <summary>
         /// Вывести массив сотрудников
         /// </summary>
@@ -26,60 +27,8 @@ namespace EmployeesNew
                     $" PlaceOfBirth: {worker.PlaceOfBirth}");
             }
 
-            Console.WriteLine();
-
-            Console.WriteLine($"Выберите действие:" +
-                $"\nВыбрать сотрудника: 1" +
-                $"\nУдалить сотрудника: 2" +
-                $"\nДобавить сотрудника: 3");
-            int inputValue = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine();
-
-            switch (inputValue)
-            {
-                case 1:
-                    /*Console.WriteLine($"Введите id сотрудника:");
-                    int inputIdAdd = Convert.ToInt32(Console.ReadLine());
-
-                    Worker selectedWorker = GetWorkerById(inputIdAdd, workers);
-                    if (selectedWorker.Id != 0)
-                    {
-                        Console.WriteLine("Выбранный сотрудник:");
-                        PrintWorker(selectedWorker);
-                    }
-                    Console.ReadKey();
-                    Console.Clear();*/
-                    break;
-                case 2:
-                    Console.WriteLine($"Введите id сотрудника:");
-                    int inputIdDel = Convert.ToInt32(Console.ReadLine());
-
-
-                    DeleteWorker(inputIdDel);
-                    break;
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
+
         /// <summary>
         /// Вывести сотрудника
         /// </summary>
@@ -94,16 +43,17 @@ namespace EmployeesNew
                     $" PlaceOfBirth: {worker.PlaceOfBirth}");
         }
 
-
-
-
         /// <summary>
         /// здесь происходит чтение из файла и возврат массива считанных экземпляров
         /// </summary>
         /// <returns></returns>
         public Worker[] GetAllWorkers()
         {
-            //Console.Clear();
+            if (!File.Exists(filePath))
+            {
+                using (File.Create(filePath)) { }
+                return new Worker[0]; 
+            }
 
             string[] lines = File.ReadAllLines(filePath);
             Worker[] workers = new Worker[lines.Length];
@@ -162,6 +112,7 @@ namespace EmployeesNew
                 }
             }
         }
+
         /// <summary>
         /// присваиваем worker уникальный ID, дописываем нового worker в файл
         /// </summary>
@@ -169,17 +120,30 @@ namespace EmployeesNew
         public void AddWorker(Worker worker)
         {
             worker.Id = GenerateUniqueId();
-            string newData = $"{worker.Id}#{worker.AddedDateTime.ToString("dd.MM.yyyy HH:mm")}#{worker.Fio}#{worker.Age}#{worker.Height}#{worker.DateOfBirth.ToString("dd.MM.yyyy")}#{worker.PlaceOfBirth}";
+            string newData = $"{worker.Id}#" +
+                $"{worker.AddedDateTime.ToString("dd.MM.yyyy HH:mm")}#" +
+                $"{worker.Fio}#" +
+                $"{worker.Age}#" +
+                $"{worker.Height}#" +
+                $"{worker.DateOfBirth.ToString("dd.MM.yyyy")}#" +
+                $"{worker.PlaceOfBirth}";
+
             using (StreamWriter writer = File.AppendText(filePath))
             {
                 writer.WriteLine(newData);
             }
         }
 
+        /// <summary>
+        /// Вывод работников по дате рождения
+        /// </summary>
+        /// <param name="dateFrom"></param>
+        /// <param name="dateTo"></param>
+        /// <returns></returns>
         public Worker[] GetWorkersBetweenTwoDates(DateTime dateFrom, DateTime dateTo)
         {
             Worker[] workers = GetAllWorkers();
-            return workers.Where(worker => worker.AddedDateTime >= dateFrom && worker.AddedDateTime <= dateTo).ToArray();
+            return workers.Where(worker => worker.DateOfBirth >= dateFrom && worker.DateOfBirth <= dateTo).ToArray();
         }
 
         private int GenerateUniqueId()
@@ -187,44 +151,5 @@ namespace EmployeesNew
             Worker[] workers = GetAllWorkers();
             return workers.Length == 0 ? 1 : workers.Max(worker => worker.Id) + 1;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

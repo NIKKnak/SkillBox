@@ -12,7 +12,11 @@
                     "\nВыбрать сотрудника: 2" +
                     "\nДобавить сотрудника: 3" +
                     "\nУдалить сотрудника: 4" +
-                    "\nВыход: 5");
+                    "\nФильтр по датам: 5" +
+                    "\nВыход: 6");
+
+
+
 
 
                 Repository repository = new Repository();
@@ -83,12 +87,23 @@
                         int inputIdDel = Convert.ToInt32(Console.ReadLine());
 
                         repository.DeleteWorker(inputIdDel);
+                        Console.Clear();
+
                         break;
 
                     case 5:
+                        Console.WriteLine($"Введите дату начала");
+                        DateTime dateFirst = Convert.ToDateTime(Console.ReadLine());
 
+                        Console.WriteLine($"Введите дату начала");
+                        DateTime dateSecond = Convert.ToDateTime(Console.ReadLine());
+
+                        Worker[] sortWorker = repository.GetWorkersBetweenTwoDates(dateFirst, dateSecond);
+                        repository.PrintWorkers(sortWorker);
+
+                        break;
+                    case 6:
                         runProgramm = false;
-
                         break;
 
                 }

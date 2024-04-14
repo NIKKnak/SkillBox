@@ -17,7 +17,7 @@ namespace EmployeesNew
             {
                 if (File.Exists(pathFile))
                 {
-                        streamWriter.WriteLine(employe); 
+                    streamWriter.WriteLine(employe);
                 }
                 else
                 {
