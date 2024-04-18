@@ -1,4 +1,6 @@
-﻿namespace Lists
+﻿using System.Collections.Generic;
+
+namespace Lists
 {
     internal class Program
     {
@@ -19,7 +21,7 @@
 
             #region FoneBook
 
-            Dictionary<int, string> myDictionary = new Dictionary<int, string>();
+            /*Dictionary<int, string> myDictionary = new Dictionary<int, string>();
             FoneBook foneBook = new FoneBook();
 
             while (true)
@@ -51,15 +53,45 @@
                         Console.Clear();
                         break;
                 }
-            }
+            }*/
 
             #endregion FoneBook
 
             #region Checking repetitions
 
 
+            CheckingRepetitions checkingRepetitions = new CheckingRepetitions();
 
+            HashSet<int> myHashSet = new HashSet<int>();
+            bool start = true;
 
+            while (start)
+            {
+                Console.WriteLine($"Добавить значение: 1\nПоказать все значения: 2\nВыход: 3");
+                int inputValue = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                switch (inputValue)
+                {
+                    case 1:
+                        Console.WriteLine("Введите значение\n");
+                        int value = Convert.ToInt32(Console.ReadLine());
+                        checkingRepetitions.AddInHash(myHashSet, value);
+
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case 2:
+                        checkingRepetitions.PrintHashSet(myHashSet);
+
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 3:
+                        start = false;
+                        break;
+                }
+            }
 
             #endregion Checking repetitions
         }
