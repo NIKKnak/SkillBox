@@ -59,41 +59,68 @@ namespace Lists
 
             #region Checking repetitions
 
+            /* CheckingRepetitions checkingRepetitions = new CheckingRepetitions();
 
-            CheckingRepetitions checkingRepetitions = new CheckingRepetitions();
+             HashSet<int> myHashSet = new HashSet<int>();
+             bool start = true;
 
-            HashSet<int> myHashSet = new HashSet<int>();
-            bool start = true;
+             while (start)
+             {
+                 Console.WriteLine($"Добавить значение: 1\nПоказать все значения: 2\nВыход: 3");
+                 int inputValue = Convert.ToInt32(Console.ReadLine());
+                 Console.WriteLine();
+                 switch (inputValue)
+                 {
+                     case 1:
+                         Console.WriteLine("Введите значение\n");
+                         int value = Convert.ToInt32(Console.ReadLine());
+                         checkingRepetitions.AddInHash(myHashSet, value);
 
-            while (start)
-            {
-                Console.WriteLine($"Добавить значение: 1\nПоказать все значения: 2\nВыход: 3");
-                int inputValue = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine();
-                switch (inputValue)
-                {
-                    case 1:
-                        Console.WriteLine("Введите значение\n");
-                        int value = Convert.ToInt32(Console.ReadLine());
-                        checkingRepetitions.AddInHash(myHashSet, value);
+                         Console.ReadKey();
+                         Console.Clear();
+                         break;
 
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
+                     case 2:
+                         checkingRepetitions.PrintHashSet(myHashSet);
 
-                    case 2:
-                        checkingRepetitions.PrintHashSet(myHashSet);
-
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
-                    case 3:
-                        start = false;
-                        break;
-                }
-            }
+                         Console.ReadKey();
+                         Console.Clear();
+                         break;
+                     case 3:
+                         start = false;
+                         break;
+                 }
+             }*/
 
             #endregion Checking repetitions
+
+            #region Notebook
+
+            const string path = "worker.xml";
+
+            Console.WriteLine($"Введите ФИО сотрудника:");
+            string fio = Console.ReadLine();
+
+            Console.WriteLine($"Введите улицу сотрудника:");
+            string street = Console.ReadLine();
+
+            Console.WriteLine($"Введите номер дома сотрудника:");
+            int homeNumber = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"Введите номер квартиры сотрудника:");
+            int apartmentNumber = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"Введите мобильный номер сотрудника");
+            int phoneNumber = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"Введите домашний номер телефона сотрудника:");
+            int homePhoneNumber = Convert.ToInt32(Console.ReadLine());
+
+            Worker worker = new Worker(fio,street,homeNumber,apartmentNumber,phoneNumber,homePhoneNumber);
+
+            worker.SerializeWorker(path);
+
+            #endregion Notebook
         }
     }
 }
