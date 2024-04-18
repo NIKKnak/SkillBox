@@ -29,12 +29,19 @@ namespace Lists
             Console.WriteLine("Введите номер контакта");
             int number = Convert.ToInt32(Console.ReadLine());
 
-            string value = myDictionary[number];
-            
-            Console.WriteLine();
-            Console.WriteLine($"Телефон: {number} Пользователь: {value}");
-        }
+            if (myDictionary.ContainsKey(number))
+            {
+                string value = myDictionary[number];
 
+                Console.WriteLine();
+                Console.WriteLine($"Телефон: {number} Пользователь: {value}");
+            }
+            else
+            {
+                Console.WriteLine("Нет данного пользователя");
+            }
+
+        }
 
         public void PrintDictionary(Dictionary<int, string> myDictionary)
         {
@@ -43,10 +50,5 @@ namespace Lists
                 Console.WriteLine($"Телефон: {item.Key} Пользователь: {item.Value}");
             }
         }
-
-
-
-
-
     }
 }

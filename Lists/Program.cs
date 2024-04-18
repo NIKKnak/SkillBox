@@ -22,20 +22,13 @@
             Dictionary<int, string> myDictionary = new Dictionary<int, string>();
             FoneBook foneBook = new FoneBook();
 
-
             while (true)
             {
-
-
-
                 Console.WriteLine($"Добавить контакт: 1\nНайти контакт: 2\nПоказать все контакты: 3\n");
                 int inputValue = Convert.ToInt32(Console.ReadLine());
                 switch (inputValue)
                 {
                     case 1:
-
-
-
                         Console.WriteLine($"Введите номер телефона пользователя");
                         int foneNumber = Convert.ToInt32(Console.ReadLine());
 
@@ -57,15 +50,18 @@
                         Console.ReadKey();
                         Console.Clear();
                         break;
-
-
                 }
-
-
             }
 
             #endregion FoneBook
 
+            #region Checking repetitions
+
+
+
+
+
+            #endregion Checking repetitions
         }
     }
 }
