@@ -23,30 +23,40 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ListBox1.Items.Clear();
+
             string inputString = TextBox1.Text;
             
             string[] finish = inputString.Split(' ');
 
-
-
-
-
-
+            foreach (var item in finish)
+            {
+                ListBox1.Items.Add(item);
+                
+            }
         }
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            string inputString = TextBox2.Text;
 
+            string[] finish = inputString.Split(' ');
+
+            Array.Reverse(finish);
+
+            string reversedText = string.Join(" ",finish);
+
+
+            Label2.Content = reversedText;
+
+            //Console.WriteLine(sb);
+        }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-                /*foreach (var item in sender)
-                {
-                    Console.WriteLine(item);
-                }*/
-
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
+
+
     }
 }

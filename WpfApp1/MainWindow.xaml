@@ -7,9 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="367" Width="619">
     <Grid>
-        <Button Content="Конвертировать строку" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Height="46" Width="144" Click="Button_Click"/>
-        <ListBox x:Name="ListBox1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="74,162,75,0" VerticalAlignment="Top" Height="166" SelectionChanged="ListBox_SelectionChanged"/>
-        <TextBox x:Name="TextBox1" HorizontalAlignment="Center" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" TextChanged="TextBox_TextChanged" Text="fghfgh&#xD;&#xA;"/>
+
+        <TabControl>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Button1" Content="Разбить строку" HorizontalAlignment="Left" Margin="249,40,0,0" VerticalAlignment="Top" Height="46" Width="144" Click="Button_Click"/>
+                    <ListBox x:Name="ListBox1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="74,145,75,0" VerticalAlignment="Top" Height="135" SelectionChanged="ListBox_SelectionChanged"/>
+                    <TextBox x:Name="TextBox1" HorizontalAlignment="Center" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" TextChanged="TextBox_TextChanged" Height="18"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Button2" Content="Конвертировать строку" HorizontalAlignment="Center" Margin="0,37,0,0" Height="46" Width="144" VerticalAlignment="Top" Click="Button2_Click"/>
+                    <TextBox x:Name="TextBox2" HorizontalAlignment="Left" Margin="75,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" TextChanged="TextBox_TextChanged"/>
+                    <Label x:Name="Label2" Content="" HorizontalAlignment="Left" Margin="125,153,0,0" VerticalAlignment="Top" Height="72" Width="339"/>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
