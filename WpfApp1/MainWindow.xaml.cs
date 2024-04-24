@@ -31,8 +31,7 @@ namespace WpfApp1
 
             foreach (var item in finish)
             {
-                ListBox1.Items.Add(item);
-                
+                ListBox1.Items.Add(item);              
             }
         }
         private void Button2_Click(object sender, RoutedEventArgs e)
@@ -45,10 +44,8 @@ namespace WpfApp1
 
             string reversedText = string.Join(" ",finish);
 
-
             Label2.Content = reversedText;
 
-            //Console.WriteLine(sb);
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -56,7 +53,5 @@ namespace WpfApp1
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
-
-
     }
 }
