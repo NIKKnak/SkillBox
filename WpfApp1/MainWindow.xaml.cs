@@ -23,7 +23,30 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello world");
+            string inputString = TextBox1.Text;
+            
+            string[] finish = inputString.Split(' ');
+
+
+
+
+
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+                /*foreach (var item in sender)
+                {
+                    Console.WriteLine(item);
+                }*/
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
