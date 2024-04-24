@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees", "..\Employees\E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesNew", "..\EmployeesNew\EmployeesNew.csproj", "{E9325EB4-2C0E-417E-93AF-BE569498B5B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "..\Lists\Lists.csproj", "{C4FBB55D-998E-4DA6-8F16-2A37DFFE817A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lists", "..\Lists\Lists.csproj", "{C4FBB55D-998E-4DA6-8F16-2A37DFFE817A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
