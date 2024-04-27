@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP1
 {
-    interface IUserData
+    public interface IUserData
     {
         string Name { get; set; }
         string Surname {  get; set; }

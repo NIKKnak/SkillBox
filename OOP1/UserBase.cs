@@ -5,10 +5,11 @@ using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace OOP1
 {
-    class UserBase : IUserData
+    public class UserBase : IUserData
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -32,21 +33,24 @@ namespace OOP1
 
         public List<UserBase> users = new List<UserBase>();
 
-        public List<UserBase> Users(UserBase user)
+        public List<UserBase> UsersList()
         {
-            users.Add(user);
+            users.Add(new Manager("aaa", "sss", "ddd", 11111, 1234, 11111111));
+            users.Add(new Consultant("aaa", "sss", "ddd", 11111, 1234, 11111111));
+            users.Add(new Consultant("aaa", "sss", "ddd", 11111, 1234, 11111111));
 
             return users;
         }
 
+        
 
 
         void ViewingInformation(UserBase user, UserBase userInList)
         {
-           
+
             if (user.role == IUserData.Role.Consultant)
             {
-                string seriesNumbera  = HideSensitiveData(Convert.ToString(userInList.Series));
+                string seriesNumbera = HideSensitiveData(Convert.ToString(userInList.Series));
                 string passportIdNumber = HideSensitiveData(Convert.ToString(userInList.PassportID));
             }
             else
