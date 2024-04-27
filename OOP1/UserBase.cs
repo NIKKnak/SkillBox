@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using static OOP1.IUserData;
 
 namespace OOP1
 {
@@ -17,8 +18,9 @@ namespace OOP1
         public decimal PhoneNumber { get; set; }
         public int Series { get; set; }
         public int PassportID { get; set; }
-        public IUserData.Role role { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public Role  role { get; set; }
+        public override string ToString() => $"{Name}";
+ 
 
         public UserBase(string name, string surname, string patronymic, decimal phoneNumber, int series, int passportId, IUserData.Role role)
         {
@@ -30,20 +32,6 @@ namespace OOP1
             this.PassportID = passportId;
             this.role = role;
         }
-
-        public List<UserBase> users = new List<UserBase>();
-
-        public List<UserBase> UsersList()
-        {
-            users.Add(new Manager("aaa", "sss", "ddd", 11111, 1234, 11111111));
-            users.Add(new Consultant("aaa", "sss", "ddd", 11111, 1234, 11111111));
-            users.Add(new Consultant("aaa", "sss", "ddd", 11111, 1234, 11111111));
-
-            return users;
-        }
-
-        
-
 
         void ViewingInformation(UserBase user, UserBase userInList)
         {
@@ -57,9 +45,6 @@ namespace OOP1
             {
 
             }
-
-
-
         }
 
         static string HideSensitiveData(string data)

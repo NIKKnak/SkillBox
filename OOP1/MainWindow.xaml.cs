@@ -14,28 +14,35 @@ namespace OOP1
         {
             InitializeComponent();
 
-            comboBox1.Items.Add("sad");
-                
-          
-            /*comboBox1.ItemsSource = userBase;
-            comboBox1.DisplayMemberPath = "Name"*/;
-            
+            List<UserBase> users = new List<UserBase>();
+            comboBox1.ItemsSource = UsersList(users);
+            comboBox2.ItemsSource = users;
+        }
+
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 
 
 
-        /*public List<UserBase> users()
+
+        public List<UserBase> UsersList(List<UserBase> users)
         {
-            List<UserBase> users = new List<UserBase>()
-            {
-                new Manager("aaa", "sss", "ddd", 1234, 1111, 111),
-                new Manager("qqq", "www", "eee", 3214, 2222, 222),
-                new Consultant("zzz", "xxx", "ccc", 5325, 3333, 333)
-            };
+            users.Add(new Manager("aaa", "sss", "ddd", 11111, 1234, 11111111));
+            users.Add(new Consultant("aaa", "sss", "ddd", 11111, 1234, 11111111));
+            users.Add(new Consultant("aaa", "sss", "ddd", 11111, 1234, 11111111));
 
             return users;
-        }*/
+        }
+
+
+
+
+
+
+
+
 
     }
 

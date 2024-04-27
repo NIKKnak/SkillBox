@@ -9,7 +9,7 @@ namespace OOP1
     public interface IUserData
     {
         string Name { get; set; }
-        string Surname {  get; set; }
+        string Surname { get; set; }
         string Patronymic { get; set; }
         decimal PhoneNumber { get; set; }
         int Series { get; set; }

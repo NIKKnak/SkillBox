@@ -14,6 +14,7 @@ namespace OOP1
         {
 
         }
+        public new Role role { get; set; } = Role.Consultant;
         public override string ToString()
         {
             return $"{Surname} {Name} {Patronymic} ";
