@@ -14,8 +14,14 @@ namespace OOP1
         decimal PhoneNumber { get; set; }
         int Series { get; set; }
         int PassportID { get; set; }
+        Role role { get; set; }
 
-        void ViewingInformation() { }
+        enum Role
+        {
+            Consultant,
+            Manager
+        }
+
     }
 }
 
