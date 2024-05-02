@@ -1,131 +1,158 @@
 ﻿using System;
-using System.Reflection.Metadata;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace OOP1
+namespace Homework_11
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Client> clients;
+        Bank bank = new Bank("");
+        AddWindow addWindow;
+        EditClientByManager editClientByManager;
+        EditClientByConsultant editClientByConsultant;
+        Consultant consultant;
+        Manager manager;
+        bool flagManager;
         public MainWindow()
         {
-
             InitializeComponent();
-
-            clients = new List<Client>
-            {
-                new Consultant("Семенов", "Игорь", "Валерьевич", "+9055022365", "1111 111111"),
-                new Consultant("Петров", "Иван", "Дмитриевич", "+9043656312", "2222 222222"),
-                new Consultant("Сидоров", "Николай", "Константинович", "+9200254523", "3333 333333"),
-                new Consultant("Консультант", "Петр", "Петрович", "+9047856512", "4444 444444"),
-                new Manager("Менеджер", "Петр", "Петрович", "+9056548565", "5555 555555"),
-
-            };
-
-            foreach (Client client in clients)
-            {
-                comboBox1.Items.Add($"{client.LastName} {client.FirstName}");
-            }
-
-            foreach (Client client in clients)
-            {
-                comboBox2.Items.Add($"{client.LastName} {client.FirstName}");
-            }
-
-
+            consultant = new Consultant("", bank);
+            manager = new Manager("", bank);
+            ChangeCount();
+            AddButton.Visibility = Visibility.Hidden;
+            OpenButton.Visibility = Visibility.Hidden;
+            SaveButton.Visibility = Visibility.Hidden;
+            EditButton.Visibility = Visibility.Hidden;
+            PrintButton.Visibility = Visibility.Hidden;
         }
-
-        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// Изменение интерфейса программы в ответ на смену сотрудника в элементе выбора ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Employee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBox1.SelectedItem != null)
+            string element = ((TextBlock)Employee.SelectedItem).Text;
+            if (element == "Консультант")
             {
-                string selectedClientName = comboBox1.SelectedItem.ToString();
-
-                // Найдем клиента в списке по его имени
-                Client selectedClient = clients.Find(client => $"{client.LastName} {client.FirstName}" == selectedClientName);
-
-                // Проверим, является ли клиент консультантом
-                if (selectedClient is Consultant)
-                {
-                    // Если клиент - консультант, то скроем паспорт и запретим редактирование ФИО
-                    textBoxPassport.Text = "******************";
-                    textBoxLastName.IsEnabled = false;
-                    textBoxFirstName.IsEnabled = false;
-                    textBoxPatronymic.IsEnabled = false;
-                }
-                else
-                {
-                    // Если клиент - не консультант, то отобразим паспорт и разрешим редактирование ФИО
-                    //textBoxPassport.Text = selectedClient.GetPassport();
-                    textBoxLastName.IsEnabled = true;
-                    textBoxFirstName.IsEnabled = true;
-                    textBoxPatronymic.IsEnabled = true;
-                }
+                flagManager = false;
+                EditButton.Visibility = Visibility.Visible;
+                PrintButton.Visibility = Visibility.Visible;
+                AddButton.Visibility = Visibility.Hidden;
+                OpenButton.Visibility = Visibility.Hidden;
+                SaveButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                flagManager = true;
+                EditButton.Visibility = Visibility.Visible;
+                PrintButton.Visibility = Visibility.Visible;
+                AddButton.Visibility = Visibility.Visible;
+                OpenButton.Visibility = Visibility.Visible;
+                SaveButton.Visibility = Visibility.Visible;
             }
         }
-
-
-        private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// Вызов окна добавления клиента по нажатию кнопки 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (comboBox2.SelectedItem != null)
+            addWindow = new AddWindow(manager);
+            addWindow.AddOKButton.Click += ChangeCount;
+            addWindow.Show();
+        }
+        /// <summary>
+        /// Отслеживание изменения количества записей в коллекции клиентов банка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeCount(object sender, RoutedEventArgs e)
+        {
+            Count.Text = "Количество записей = " + bank.ClientsList.Count;
+        }
+        /// <summary>
+        /// Отслеживание изменения количества записей в коллекции клиентов банка
+        /// </summary>
+        private void ChangeCount()
+        {
+            Count.Text = "Количество записей = " + bank.ClientsList.Count;
+        }
+        /// <summary>
+        /// запуск метода сохранения коллекции клиентов по нажатию кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            bank.Save();
+        }
+        /// <summary>
+        /// запуск метода открытия коллекции клиентов по нажатию кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            bank.Open();
+            ChangeCount();
+        }
+        /// <summary>
+        /// вызов окна и распечатки коллекции клиентов в зависимости от сотрудника по нажатию кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            PrintClient printClient = new PrintClient();
+            printClient.Show();
+            if (flagManager)
             {
-                string selectedClientName = comboBox2.SelectedItem.ToString();
-
-                // Найдем клиента в списке по его имени
-                Client selectedClient = clients.Find(client => $"{client.LastName} {client.FirstName}" == selectedClientName);
-
-                // Отобразим данные клиента в текстовых полях интерфейса
-                textBoxLastName.Text = selectedClient.LastName;
-                textBoxFirstName.Text = selectedClient.FirstName;
-                textBoxPatronymic.Text = selectedClient.Patronymic;
-                textBoxPhoneNumber.Text = selectedClient.PhoneNumber; // Добавляем отображение номера телефона
-                textBoxPassport.Text = selectedClient.GetPassport(); // Добавляем отображение номера телефона
-
-                // Проверим, является ли клиент консультантом
-                if (selectedClient is Consultant)
+                while (i < bank.ClientsList.Count)
                 {
-                    // Если клиент - консультант, то скроем паспорт
-                    textBoxPassport.Text = "******************";
-                }
-                else
-                {
-                    // Если клиент - не консультант, то отобразим паспорт
-                    textBoxPassport.Text = selectedClient.GetPassport();
+                    printClient.Client.Items.Add(manager.PrintClient(i));
+                    i++;
                 }
             }
+            else while(i<bank.ClientsList.Count)
+                {
+                    printClient.Client.Items.Add(consultant.PrintClient(i));
+                    i++;
+                }
         }
-
-
-
-        private void textBoxLastName_TextChanged(object sender, TextChangedEventArgs e)
+        /// <summary>
+        /// вызов окна редактирования коллекции клиентов в заввисимости от сотрудника по нажатию кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void textBoxFirstName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void textBoxPatronymic_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void textBoxPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void textBoxPassport_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            if (flagManager)
+            {
+                editClientByManager = new EditClientByManager(manager);
+                editClientByManager.Show();
+            }
+            else
+            {
+                editClientByConsultant = new EditClientByConsultant(consultant);
+                editClientByConsultant.Show();
+            }
         }
     }
-
-
 }

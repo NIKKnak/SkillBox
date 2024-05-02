@@ -1,14 +1,29 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
-namespace OOP1
+namespace Homework_11
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Логика взаимодействия для App.xaml
     /// </summary>
     public partial class App : Application
-    {
-    }
+    {   
+        App()
+        {
+            InitializeComponent();
+        }
 
+        [STAThread]
+        static void Main()
+        {
+            App app = new App();
+            MainWindow mw = new MainWindow();
+            app.Run(mw);
+        }
+    }
 }

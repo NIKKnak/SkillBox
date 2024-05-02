@@ -1,110 +1,71 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
-
-namespace OOP1
+namespace Homework_11
 {
     public class Client
     {
-        private string _lastName;
-        private string _firstName;
-        private string _patronymic;
-        private string _phoneNumber;
-        private string _passport;
-        private DateTime _lastModificationDate;
-        private string _modificationType;
-        private string _modifierType;
+        #region Поля
+        private long telephoneNumber;
 
-        public Client(string lastName, string firstName, string patronymic, string phoneNumber, string passport)
-        {
-            _lastName = lastName;
-            _firstName = firstName;
-            _patronymic = patronymic;
-            _phoneNumber = phoneNumber;
-            _passport = passport;
-            _lastModificationDate = DateTime.MinValue;
-            _modificationType = "";
-            _modifierType = "";
-        }
+        private string serialOfDocument;
 
-        public string GetPassport()
-        {
-            return _passport;
-        }
+        private string firstName;
 
-        public void SetClientData(string lastName, string firstName, string patronymic, string phoneNumber, string passport)
-        {
-            _lastName = lastName;
-            _firstName = firstName;
-            _patronymic = patronymic;
-            _phoneNumber = phoneNumber;
-            _passport = passport;
-        }
+        private string middleName;
 
-        public string LastName
-        {
-            get { return _lastName; }
-        }
+        private string lastName;
 
-        public string FirstName
-        {
-            get { return _firstName; }
-        }
+        private DateTime dateTime;
 
-        public string Patronymic
-        {
-            get { return _patronymic; }
-        }
+        private string changeLog;
 
-        public string PhoneNumber
+        private string whoChange;
+        #endregion
+
+        #region Свойства
+        [JsonProperty("FirstName")]
+        public string FirstName { get { return firstName; } set { firstName = value; } }
+        [JsonProperty("MiddleName")]
+        public string MiddleName { get { return middleName; } set { middleName = value; } }
+        [JsonProperty("LastName")]
+        public string LastName { get { return lastName; } set { lastName = value; } }
+        [JsonProperty("DateTime")]
+        public DateTime DateTime { get { return dateTime; } set { dateTime = value; } }
+        [JsonProperty("ChangeLog")]
+        public string ChangeLog { get { return changeLog; } set { changeLog = value; } }
+        [JsonProperty("WhoChange")]
+        public string WhoChange { get { return whoChange; }set { whoChange = value; } }
+        [JsonProperty("SerialOfDocument")]
+        public string SerialOfDocument { get { return serialOfDocument; } set { serialOfDocument = value; } }
+        [JsonProperty("TelephoneNumber")]
+        public long TelephoneNumber 
         {
-            get { return _phoneNumber; }
+            //Возвращает значение телефонного номера и устанавливает его только в том случае, если длинна больше 10 символов
+            get
+            {
+                return telephoneNumber;
+            }
             set
             {
-                _phoneNumber = value;
-                _lastModificationDate = DateTime.Now;
-                _modificationType = "Изменение номера телефона";
-                _modifierType = "Консультант";
+                if (value.ToString().Length >= 10) telephoneNumber = value;
             }
         }
+        #endregion
 
-        public virtual string PassportForConsultant
+        #region Конструктор
+        public Client(string firstName, string middleName, string lastName, long telephoneNumber, string serialOfDocument)
         {
-            get { return "******************"; }
+            FirstName = firstName;
+            MiddleName = middleName;
+            LastName = lastName;
+            TelephoneNumber = telephoneNumber;
+            SerialOfDocument = serialOfDocument;
         }
-
-        public DateTime LastModificationDate
-        {
-            get { return _lastModificationDate; }
-        }
-
-        public string ModificationType
-        {
-            get { return _modificationType; }
-        }
-
-        public string ModifierType
-        {
-            get { return _modifierType; }
-        }
-
-        public override string ToString()
-        {
-            return $"Фамилия: {_lastName}" +
-                $"\nИмя: {_firstName}" +
-                $"\nОтчество: {_patronymic}" +
-                $"\nНомер телефона: {_phoneNumber}" +
-                $"\nСерия, номер паспорта: {PassportForConsultant}" +
-                $"\nДата и время последнего изменения: {_lastModificationDate}" +
-                $"\nТип изменений: {_modificationType}" +
-                $"\nКто изменил данные: {_modifierType}";
-        }
+        #endregion
     }
-
 }
