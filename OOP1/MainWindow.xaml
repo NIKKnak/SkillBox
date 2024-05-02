@@ -8,21 +8,21 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid HorizontalAlignment="Right" Width="800">
         <Label x:Name="Worker" Content="Сотрудник :" HorizontalAlignment="Left" Margin="22,24,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="248,80,0,0" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="248,80,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox2_SelectionChanged"/>
         <Label x:Name="WorkerData" Content="Выбрать сотрудника для просмотра :" HorizontalAlignment="Left" Margin="22,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,3.014"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,137,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox x:Name="textBoxLastName" HorizontalAlignment="Left" Margin="174,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20" TextChanged="textBoxLastName_TextChanged"/>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="86" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Margin="174,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20" TextChanged="textBoxFirstName_TextChanged"/>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="28,137,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="86" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,231,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox x:Name="textBoxPatronymic" HorizontalAlignment="Left" Margin="174,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20" TextChanged="textBoxPatronymic_TextChanged"/>
         <Label Content="Отчество" HorizontalAlignment="Left" Margin="28,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="101" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,137,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox x:Name="textBoxPhoneNumber" HorizontalAlignment="Left" Margin="577,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20" TextChanged="textBoxPhoneNumber_TextChanged"/>
         <Label Content="Контакт для связи" HorizontalAlignment="Left" Margin="348,137,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="178" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox x:Name="textBoxPassport" HorizontalAlignment="Left" Margin="577,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20" TextChanged="textBoxPassport_TextChanged"/>
         <Label Content="Серия паспорта" HorizontalAlignment="Left" Margin="348,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="178" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,231,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="577,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
         <Label Content="Номер паспорта" HorizontalAlignment="Left" Margin="348,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="178" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,278,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="577,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="42" FontSize="20"/>
         <Label Content="Должность" HorizontalAlignment="Left" Margin="348,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.060,0.041" Height="42" Width="178" FontSize="18"/>
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="102,26,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox1_SelectionChanged"/>
 

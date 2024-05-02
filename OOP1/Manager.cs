@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static OOP1.IUserData;
+
 namespace OOP1
 {
-    public class Manager : UserBase
+    public class Manager : Client
     {
-        public Manager(string name, string surname, string patronymic, decimal phoneNumber, int series, int passportId, IUserData.Role role= Role.Manager)
-        : base(name, surname, patronymic, phoneNumber, series, passportId, role:Role.Manager)
+        public Manager(string lastName, string firstName, string patronymic, string phoneNumber, string passport)
+            : base(lastName, firstName, patronymic, phoneNumber, passport)
         {
 
-
         }
-        public new Role role { get; set; } = Role.Manager;
-        public override string ToString()
+
+        public new string PassportForConsultant
         {
-            return $"{Surname} {Name} {Patronymic} ";
+            get { return base.GetPassport(); }
         }
 
-
+        public void AddClientData(string lastName, string firstName, string patronymic, string phoneNumber, string passport)
+        {
+            base.SetClientData(lastName, firstName, patronymic, phoneNumber, passport);
+        }
     }
+
+
 }
