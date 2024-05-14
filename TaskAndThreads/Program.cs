@@ -1,7 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-
-namespace Test
+﻿namespace TaskAndThreads
 {
     internal class Program
     {
@@ -39,7 +36,5 @@ namespace Test
 
             Console.WriteLine($"{message} - Поток: {Thread.CurrentThread.Name}");
         }
-
-
     }
 }
