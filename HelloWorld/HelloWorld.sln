@@ -25,7 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP1", "..\OOP1\OOP1.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "..\Test\Test.csproj", "{A3C44996-180F-434B-9FA5-462B3C3E04EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskAndThreads", "..\TaskAndThreads\TaskAndThreads.csproj", "{4A80FE4D-A5BA-4EDA-8D70-EED91B815DD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskAndThreads", "..\TaskAndThreads\TaskAndThreads.csproj", "{4A80FE4D-A5BA-4EDA-8D70-EED91B815DD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOnetDZ", "..\ADOnetDZ\ADOnetDZ.csproj", "{91DAB170-AB60-4700-BE3F-1FA8168C50FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{4A80FE4D-A5BA-4EDA-8D70-EED91B815DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A80FE4D-A5BA-4EDA-8D70-EED91B815DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A80FE4D-A5BA-4EDA-8D70-EED91B815DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
