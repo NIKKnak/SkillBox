@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "..\Test\Test.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskAndThreads", "..\TaskAndThreads\TaskAndThreads.csproj", "{4A80FE4D-A5BA-4EDA-8D70-EED91B815DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOnetDZ", "..\ADOnetDZ\ADOnetDZ.csproj", "{91DAB170-AB60-4700-BE3F-1FA8168C50FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOnetDZ", "..\ADOnetDZ\ADOnetDZ.csproj", "{91DAB170-AB60-4700-BE3F-1FA8168C50FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_16", "..\Homework_16\Homework_16.csproj", "{702C6B47-BD97-4CFB-AA41-D16547D2ADC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91DAB170-AB60-4700-BE3F-1FA8168C50FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702C6B47-BD97-4CFB-AA41-D16547D2ADC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702C6B47-BD97-4CFB-AA41-D16547D2ADC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702C6B47-BD97-4CFB-AA41-D16547D2ADC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702C6B47-BD97-4CFB-AA41-D16547D2ADC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
@@ -29,7 +30,7 @@ namespace ADOnetDZ
 
 
             // чтение данных из базы
-            try
+            /*try
             {
                 using (SqlConnection c = new SqlConnection(strCon.ConnectionString))
                 {
@@ -59,10 +60,41 @@ namespace ADOnetDZ
             {
 
                 throw;
+            }*/
+
+
+            //добовление записей в базу
+            try
+            {
+                using (SqlConnection c = new SqlConnection(strCon.ConnectionString))
+                {
+                    c.Open();
+                    string[] sqls =
+                        {
+                        "insert into Bosses([WorkerName],[departmantName]) values (N'Начальние 4',N'отдел 4')",
+                        "insert into Bosses([WorkerName],[departmantName]) values (N'Начальние 5',N'отдел 5')",
+                        "insert into Bosses([WorkerName],[departmantName]) values (N'Начальние 6',N'отдел 6')"
+                        };
+
+                    SqlCommand command;
+                    foreach (var sql in sqls)
+                    {
+                        command = new SqlCommand(sql, c);
+                        command.ExecuteNonQuery();
+                    }
+
+
+
+                }
             }
-
-
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Done");
+            }
 
 
         }

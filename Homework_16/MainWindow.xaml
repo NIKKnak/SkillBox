@@ -1,0 +1,18 @@
+﻿<Window x:Class="Homework_16.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework_16"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="5,348,0,0" VerticalAlignment="Top" Height="28" Width="53" Text="DB1 :" TextWrapping="Wrap" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="5,381,0,0" VerticalAlignment="Top" Height="28" Width="53" Text="DB2 :" TextWrapping="Wrap" TextAlignment="Center"/>
+        <TextBlock x:Name="TextBlockDB1" HorizontalAlignment="Left" Margin="63,348,0,0" VerticalAlignment="Top" Height="28" Width="507" TextWrapping="Wrap"/>
+        <TextBlock x:Name="TextBlockDB2" HorizontalAlignment="Left" Margin="63,381,0,0" VerticalAlignment="Top" Height="28" Width="507" TextWrapping="Wrap"/>
+        <TextBlock x:Name="TextBlockDB1state" HorizontalAlignment="Left" Margin="570,349,0,0" VerticalAlignment="Top" Height="28" Width="120" TextWrapping="Wrap" TextAlignment="Center"/>
+        <TextBlock x:Name="TextBlockDB2state" HorizontalAlignment="Left" Margin="570,382,0,0" VerticalAlignment="Top" Height="28" Width="120" TextWrapping="Wrap" TextAlignment="Center"/>
+
+    </Grid>
+</Window>
