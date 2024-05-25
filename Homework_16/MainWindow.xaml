@@ -7,12 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="5,348,0,0" VerticalAlignment="Top" Height="28" Width="53" Text="DB1 :" TextWrapping="Wrap" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="5,381,0,0" VerticalAlignment="Top" Height="28" Width="53" Text="DB2 :" TextWrapping="Wrap" TextAlignment="Center"/>
-        <TextBlock x:Name="TextBlockDB1" HorizontalAlignment="Left" Margin="63,348,0,0" VerticalAlignment="Top" Height="28" Width="507" TextWrapping="Wrap"/>
-        <TextBlock x:Name="TextBlockDB2" HorizontalAlignment="Left" Margin="63,381,0,0" VerticalAlignment="Top" Height="28" Width="507" TextWrapping="Wrap"/>
-        <TextBlock x:Name="TextBlockDB1state" HorizontalAlignment="Left" Margin="570,349,0,0" VerticalAlignment="Top" Height="28" Width="120" TextWrapping="Wrap" TextAlignment="Center"/>
-        <TextBlock x:Name="TextBlockDB2state" HorizontalAlignment="Left" Margin="570,382,0,0" VerticalAlignment="Top" Height="28" Width="120" TextWrapping="Wrap" TextAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <DataGrid Name="dataGrid" AutoGenerateColumns="False" Grid.Row="0" ItemsSource="{Binding YourItemsSource}">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id"
+                                   Binding="{Binding Id}"
+                                   Header="Id"
+                                   IsReadOnly="True" />
+                <DataGridTextColumn x:Name="WorkerName"
+                    Binding="{Binding WorkerName}"
+                    Header="Сотрудник" />
+
+                <DataGridTextColumn x:Name="IdBoss"
+                    Binding="{Binding IdBoss}"
+                    Header="Id начальника"/>
+
+                <DataGridTextColumn x:Name="idDiscription"
+                    Binding="{Binding idDiscription}"
+                    Header="Отдел" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="5,32,0,0" VerticalAlignment="Top" Height="28" Width="53" Text="DB1 :" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="5,65,0,0" VerticalAlignment="Top" Height="28" Width="53" Text="DB2 :" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock x:Name="TextBlockDB1" HorizontalAlignment="Left" Margin="63,32,0,0" VerticalAlignment="Top" Height="28" Width="507" TextWrapping="Wrap" Grid.Row="1"/>
+        <TextBlock x:Name="TextBlockDB2" HorizontalAlignment="Left" Margin="63,65,0,0" VerticalAlignment="Top" Height="28" Width="507" TextWrapping="Wrap" Grid.Row="1"/>
+        <TextBlock x:Name="TextBlockDB1state" HorizontalAlignment="Left" Margin="570,33,0,0" VerticalAlignment="Top" Height="28" Width="120" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock x:Name="TextBlockDB2state" HorizontalAlignment="Left" Margin="570,66,0,0" VerticalAlignment="Top" Height="28" Width="120" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1"/>
     </Grid>
 </Window>
